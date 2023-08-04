@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 基于pytorch的网路编写
 实现一个网路完成一个简单的nlp任务
 判断文本中是否有某些字符出现
+加入RNN层
 
 """
 
