@@ -105,7 +105,7 @@ if __name__ == "__main__":
     # main()
 
     input_size = 6
-    model = TorchModel(input_size, 9, 3)
+    model = TorchModel(input_size, 3, 3)
     model.load_state_dict(torch.load("model.pth"))  # 加载训练好的权重
     model.eval()  # 测试模式
     test_vec = [[0.47889086,0.15229675,0.31082123,0.03504317,0.18920843,0.18920843],
