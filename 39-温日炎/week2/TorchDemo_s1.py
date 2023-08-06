@@ -118,18 +118,19 @@ def main():
         optim.step()  # 更新权重
         optim.zero_grad()  # 梯度归零
         watch_loss.append(loss)
+        acc = evaluate(model)  # 测试本轮模型结果
+        print("acc%d", acc)
+        # print(acc)
         # log.append([acc, float(np.mean(watch_loss))])
     # 保存模型
-    acc = evaluate(model)  # 测试本轮模型结果
     # print("loss%d", watch_loss)
-    print("acc%d", acc)
     torch.save(model.state_dict(), "model2.pth")
     # 画图
     # print(log)
-    # plt.plot(range(len(log)), [l[0] for l in log], label="acc")  # 画acc曲线
-    # plt.plot(range(len(log)), [l[1] for l in log], label="loss")  # 画loss曲线
-    # plt.legend()
-    # plt.show()
+    plt.plot(range(len(log)), [l[0] for l in log], label="acc")  # 画acc曲线
+    plt.plot(range(len(log)), [l[1] for l in log], label="loss")  # 画loss曲线
+    plt.legend()
+    plt.show()
     return
 
 
