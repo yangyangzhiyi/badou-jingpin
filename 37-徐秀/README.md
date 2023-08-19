@@ -9,4 +9,6 @@
 
 ## week3: 尝试在nlpdemo中使用rnn模型训练
 
-## week4: 在kmeans聚类中增加类内相似度的计算
+## week4: 全切分文本
+
+## week5: 在kmeans聚类中增加类内相似度的计算
