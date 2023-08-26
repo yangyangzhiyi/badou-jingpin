@@ -139,9 +139,9 @@ def main():
             loss.backward()  # 计算梯度
             optim.step()  # 更新权重
             watch_loss.append(loss.item())
-            if i >= 50: # 跑不动！
-                torch.save(model.state_dict(), "model.pth")
-                return
+            # if i >= 50: # 跑不动！
+            #     torch.save(model.state_dict(), "model.pth")
+            #     return
         print("=========\n第%d轮平均loss:%f" % (epoch + 1, np.mean(watch_loss)))
     # 保存模型
     torch.save(model.state_dict(), "model.pth")
@@ -175,6 +175,20 @@ def predict(model_path, vocab_path, input_strings):
 
 if __name__ == "__main__":
     main()
+    """
+    loss不降
+    第 5 轮, 第 69 次，loss =  tensor(0.6719, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 70 次，loss =  tensor(0.6791, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 71 次，loss =  tensor(0.6779, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 72 次，loss =  tensor(0.6822, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 73 次，loss =  tensor(0.6794, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 74 次，loss =  tensor(0.6876, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 75 次，loss =  tensor(0.6933, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 76 次，loss =  tensor(0.6818, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 77 次，loss =  tensor(0.6736, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 78 次，loss =  tensor(0.6837, grad_fn=<NllLossBackward0>)
+第 5 轮, 第 79 次，loss =  tensor(0.6775, grad_fn=<NllLossBackward0>)
+    """
     input_strings = ["同时国内有望出台新汽车刺激方案",
                      "沪胶后市有望延续强势",
                      "经过两个交易日的强势调整后",
