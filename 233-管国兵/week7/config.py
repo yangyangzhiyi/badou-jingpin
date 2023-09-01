@@ -6,7 +6,7 @@ Config = {
     "model_path": "output",
     "train_data_path": "E:\八斗人工智能-精品班\第七周 文本分类\week7 文本分类问题\文本分类练习.csv",
     "valid_data_path": "../data/valid_tag_news.json",
-    "vocab_path":"chars.txt",
+    "vocab_path": "./data/vocab.txt",
     "model_type":"lstm",
     "max_length": 20,
     "hidden_size": 128,

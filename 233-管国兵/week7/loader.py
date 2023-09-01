@@ -3,10 +3,23 @@
 """
 加载数据
 """
+import csv
 import random
 
-from config import Config
-import csv
+
+class DataLoader(object):
+    def __init__(self, data_path):
+        self.data_path = data_path
+        self.data = load_data(data_path)
+
+    def get_data(self):
+        return self.data
+
+    def get_data_size(self):
+        return len(self.data)
+
+    def get_random_data(self, n):
+        return random_choice_data(self.data, n)
 
 
 def load_data(train_data_path):
@@ -24,8 +37,3 @@ def random_choice_data(data, num):
     for i in range(num):
         random_data.append(random.choice(data))
     return random_data
-
-
-data = load_data(Config['train_data_path'])
-random_data = random_choice_data(data, 1000)
-print(random_data)
